@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import argparse
+import os
+from telegram_bot import send_telegram_message
+
 
 # Set up command line argument parsing
 parser = argparse.ArgumentParser(description="Scrape job postings from a given URL.")
@@ -12,6 +15,8 @@ args = parser.parse_args()
 # Constants
 URL = args.url
 CSV_PATH = "standard_bank_job_postings.csv"
+TELEGRAM_TOKEN = os.environ['TELEGRAM_API_TOKEN']
+CHAT_ID = os.environ['TELEGRAM_CHAT_ID']
 
 def scrape_job_postings():
     # Fetch the web page
@@ -52,6 +57,8 @@ def check_new_postings(extracted_jobs):
     # If there are new postings, print an alert
     if not new_postings.empty:
         print(f"ALERT: {len(new_postings)} new job postings found!")
+        send_telegram_message(new_postings)
+
         # Save the updated DataFrame to the CSV
         df_new_jobs.to_csv(CSV_PATH, index=False)
     else:
