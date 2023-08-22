@@ -7,6 +7,9 @@ on:
 jobs:
   scrape_job_postings:
     runs-on: ubuntu-latest
+    env:
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      CHAT_ID: ${{ secrets.CHAT_ID }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -16,6 +19,6 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        pip install requests beautifulsoup4 pandas
+        pip install requests beautifulsoup4 pandas decouple
     - name: Run scraper script
       run: python scraper.py
