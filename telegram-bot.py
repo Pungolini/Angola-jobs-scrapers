@@ -96,14 +96,8 @@ if __name__ == "__main__":
     parser.add_argument('--Empresa',type=str, default="Azule",help = f"Nome da empresa. Atualmente disponíveis: {','.join(list(AVAILABLE_COMPANIES))}")
     args = parser.parse_args()
 
-    match args.Empresa.lower():
 
-        case "azule":
-
-            extracted_jobs = get_jobs_Azule()
-        case _:
-            extracted_jobs = get_jobs_Azule()
-
+    extracted_jobs = get_jobs_Azule()
 
     check_new_postings(extracted_jobs)
 # %%
