@@ -1,4 +1,4 @@
-# Standard Bank Job Postings Scraper
+# Angola Job Postings Scraper
 
 This repository contains a script to automatically scrape and monitor job postings from multiple companies websites.
 
