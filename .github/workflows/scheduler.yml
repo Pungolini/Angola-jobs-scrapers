@@ -21,4 +21,4 @@ jobs:
       run: |
         pip install requests beautifulsoup4 pandas python-decouple
     - name: Run scraper script
-      run: python scraper.py
+      run: python telegram-bot.py
