@@ -1,10 +1,10 @@
-# Standard Bank Job Postings Scraper
+# Angola Job Postings Scraper
 
-This repository contains a script to automatically scrape and monitor job postings from the Standard Bank website.
+This repository contains a script to automatically scrape and monitor job postings from multiple companies websites.
 
 ## Overview
 
-The script checks the Standard Bank job postings page at regular intervals and sends alerts for new postings via Telegram. The primary goal is to keep users informed about new job opportunities without manually checking the website.
+The script checks the jobs postings page at regular intervals and sends alerts for new postings via Telegram. The primary goal is to keep users informed about new job opportunities without manually checking the website.
 
 ## How It Works
 
