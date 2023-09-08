@@ -99,10 +99,11 @@ if __name__ == "__main__":
     # Set up command line argument parsing
     parser = argparse.ArgumentParser(description="Monitorização automática de vagas de trabalho")
     parser.add_argument('--Empresa',type=str, default="Azule",help = f"Nome da empresa. Atualmente disponíveis: {','.join(list(AVAILABLE_COMPANIES))}")
+    parser.add_argument('--verbose',type=bool, default=False)
     args = parser.parse_args()
 
 
-    extracted_jobs = get_jobs_Azule()
+    extracted_jobs = get_jobs_Azule(verbose = args.verbose)
 
     check_new_postings(extracted_jobs)
 # %%
