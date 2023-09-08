@@ -36,13 +36,10 @@ def get_jobs_Azule(url = AZULE_URL,verbose = False):
         # Encontrar o corpo da tabela
         tabela_body = tabela_div.find('tbody')
     except AttributeError:
-        vaga = {
-            'Título': None,
-            'Localização': None,
-            'Departamento': None,
-            'Link': None
-        }
-        return pd.DataFrame.from_dict(dict())
+
+        if verbose:
+            print("No jobs found!")
+        return None
 
     # Inicializar uma lista para armazenar os detalhes das vagas
     detalhes_vagas = []

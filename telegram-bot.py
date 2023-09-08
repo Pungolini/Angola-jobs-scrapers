@@ -63,6 +63,11 @@ def send_telegram_message(jobs_df,company = None):
 
 
 def check_new_postings(extracted_jobs_df):
+
+
+    # If there are no jobs listed, do nothing
+    if extracted_jobs is None:
+        return False
     # Convert to DataFrame
     df_new_jobs = extracted_jobs_df
     
