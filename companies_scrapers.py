@@ -29,11 +29,20 @@ def get_jobs_Azule(url = AZULE_URL,verbose = False):
     soup = BeautifulSoup(resposta.content, 'html.parser')
     
 
-    # Encontrar primeiro a tabela com ID definido
-    tabela_div = soup.find('table', id='searchresults')
+    try:
+        # Encontrar primeiro a tabela com ID definido
+        tabela_div = soup.find('table', id='searchresults')
 
-    # Encontrar o corpo da tabela
-    tabela_body = tabela_div.find('tbody')
+        # Encontrar o corpo da tabela
+        tabela_body = tabela_div.find('tbody')
+    except AttributeError:
+        vaga = {
+            'Título': None,
+            'Localização': None,
+            'Departamento': None,
+            'Link': None
+        }
+        return pd.DataFrame.from_dict(dict())
 
     # Inicializar uma lista para armazenar os detalhes das vagas
     detalhes_vagas = []
